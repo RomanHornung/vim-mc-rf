@@ -51,10 +51,10 @@ evaluatesetting <- function(iter, mywd) {
   
   set.seed(seed)
   muobj <- diversityForest::multifor(dependent.variable.name = "cl", data=dataset, importance="both", 
-                                      npervar = 5, num.trees=5000, replace = FALSE, sample.fraction = 0.7,
+                                      npervar = 5000, num.trees=5, replace = FALSE, sample.fraction = 0.7,
                                       probability=TRUE, min.node.size=5, num.threads=1)
-  class_foc <- muobj$var.imp.multiclass
-  discr <- muobj$var.imp.discr
+  class_foc <- muobj$class_foc_vim
+  discr <- muobj$discr_vim
   rm(muobj); gc()
   
   

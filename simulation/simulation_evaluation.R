@@ -784,8 +784,6 @@ p1 <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color 
   theme(legend.position = "none") +
   ggtitle(expression("Comparison with" ~ X[two_gr])) + 
   facet_wrap(~ n)  # Add facet_wrap for separate plots by "n"
-p1
-
 
 
 
@@ -846,6 +844,20 @@ p2 <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color 
          shape = guide_legend(order = 1))
 
 
+results_combined <- bind_rows(
+  resultsK6_vstwo_gr %>%
+    pivot_longer(cols = starts_with("cl_rel_"), names_to = "cl_rel", values_to = "value"),
+  resultsK6_vsthr_gr %>%
+    pivot_longer(cols = starts_with("cl_rel_"), names_to = "cl_rel", values_to = "value")
+)
+
+y_min <- min(results_combined$value, na.rm = TRUE)
+y_max <- max(results_combined$value, na.rm = TRUE)
+
+p1 <- p1 + coord_cartesian(ylim = c(y_min, y_max))
+p2 <- p2 + coord_cartesian(ylim = c(y_min, y_max))
+
+
 library("gridExtra")
 library("grid") 
 
@@ -856,7 +868,6 @@ grid_plot <- arrangeGrob(p1, nullGrob(), p2, ncol = 3, widths = c(2, 0.1, 2.5)) 
 # Figure 3:
 
 ggsave("../figures/Fig3.eps", grid_plot, width=14, height=5.5)
-
 
 
 
@@ -985,6 +996,21 @@ p2 <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color 
   facet_wrap(~ n) + # Add facet_wrap for separate plots by "n"
   guides(color = guide_legend(order = 1),
          shape = guide_legend(order = 1))
+
+
+results_combined <- bind_rows(
+  resultsK10_vstwo_gr %>%
+    pivot_longer(cols = starts_with("cl_rel_"), names_to = "cl_rel", values_to = "value"),
+  resultsK10_vsthr_gr %>%
+    pivot_longer(cols = starts_with("cl_rel_"), names_to = "cl_rel", values_to = "value")
+)
+
+y_min <- min(results_combined$value, na.rm = TRUE)
+y_max <- max(results_combined$value, na.rm = TRUE)
+
+p1 <- p1 + coord_cartesian(ylim = c(y_min, y_max))
+p2 <- p2 + coord_cartesian(ylim = c(y_min, y_max))
+
 
 # Assuming p1 and p2 are your ggplot objects
 # Create the plots with an additional empty column for spacing

@@ -19,6 +19,7 @@
 
 # Load data:
 
+library("diversityForest")
 data(hars)
 levels(hars$Activity) <- c("Laying", "Sitting", "Standing", "Walking", "Walking downstairs", "Walking upstairs")
 
@@ -28,7 +29,6 @@ levels(hars$Activity) <- c("Laying", "Sitting", "Standing", "Walking", "Walking 
 
 seed <- 1234
 
-library("diversityForest")
 library("ranger")
 
 set.seed(seed)
@@ -89,6 +89,8 @@ p
 # Figure 6:
 
 ggsave("../figures/Fig6.eps", width=10*0.8, height=7*0.8)
+
+
 
 
 # --> There is obviously a block of covariates starting with the 29th covariates,
@@ -231,9 +233,6 @@ combined_plot
 # Figure 7
 
 ggsave("../figures/Fig7.eps", plot = combined_plot, width = 10*1.3, height = 14*1.3)
-
-
-
 
 
 
@@ -392,6 +391,7 @@ p
 # Figure S5:
 
 ggsave("../figures/FigS5.pdf", width=10*0.8, height=7*0.8)
+
 
 
 
@@ -706,7 +706,6 @@ rm(muobj); gc()
 
 
 
-
 # Fig. S8: VIM values for all covariates in the gas-drift dataset.
 ###################################################################
 
@@ -742,8 +741,6 @@ p
 # Figure S8:
 
 ggsave("../figures/FigS8.pdf", width=10*0.8, height=7*0.8)
-
-
 
 
 
