@@ -6,7 +6,7 @@
 # of 'scenariogrid', which contains the necessary information
 # on the iter-th repetition.
 
-# Input parameters:
+# Input:
 
 # iter  - iter-th line of 'scenariogrid', which corresponds to the iter-th line 
 #         of 'scenariogrid', which contains the necessary information
@@ -85,7 +85,7 @@ evaluatesetting <- function(iter, mywd) {
 
 # Function for simulating a dataset:
 
-# Input parameters:
+# Input:
 
 # n - sample size
 # K - number of outcome classes, one of: 4, 6, 10
@@ -116,7 +116,7 @@ simdata <- function(n=500, K=6) {
 
 # Function for simulating a dataset with 4 outcome classes:
 
-# Input parameters:
+# Input:
 
 # n - sample size
 
@@ -211,7 +211,7 @@ simdataK4 <- function(n=500) {
 
 # Function for simulating a dataset with 6 outcome classes:
 
-# Input parameters:
+# Input:
 
 # n - sample size
 
@@ -311,7 +311,7 @@ simdataK6 <- function(n=500) {
 
 # Function for simulating a dataset with 10 outcome classes:
 
-# Input parameters:
+# Input:
 
 # n - sample size
 

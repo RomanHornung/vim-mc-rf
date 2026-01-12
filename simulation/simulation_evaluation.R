@@ -657,10 +657,10 @@ library("tidyr")
 resultstemp <- resultsall[resultsall$K==4,]
 resultstemp$K <- NULL
 
+#  filter(method_all != "Discr") %>%
 
 # Compute AUC for specified groups and aggregate results
 resultsK4_vstwo_gr <- resultstemp %>%
-  filter(method_all != "Discr") %>%
   group_by(n, method_all, itind) %>%
   summarise(
     auc_1 = auroc(vim[c(51:53, 54:56)], c(rep(FALSE, 3), rep(TRUE, 3))),
@@ -688,7 +688,7 @@ results_long <- resultsK4_vstwo_gr %>%
 results_long <- results_long %>%
   mutate(
     method_all = recode(method_all, class_foc = "Class-foc"),
-    method_all = fct_relevel(method_all, "Class-foc", "Perm", "Gini_corr")
+    method_all = fct_relevel(method_all, "Class-foc", "Perm", "Gini_corr", "Discr")
   )
 
 
@@ -705,7 +705,7 @@ p <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color =
         legend.title = element_text(size=14),
         legend.text = element_text(size=14)) + 
   labs(color="VIM type", shape="VIM type", y="AUC") +
-  scale_shape_manual(values=c("Class-foc" = 1, "Perm" = 2, "Gini_corr" = 3)) +
+  scale_shape_manual(values=c("Class-foc" = 1, "Perm" = 2, "Gini_corr" = 3, "Discr" = 0)) +
   scale_x_discrete(labels = c("cl_rel_1" = expression(X[cl_rel_1]), "cl_rel_2" = 
                                 expression(X[cl_rel_2]), "cl_rel_3" = expression(X[cl_rel_3]), 
                               "cl_rel_4" = expression(X[cl_rel_4]))) +
@@ -736,7 +736,6 @@ resultstemp$K <- NULL
 
 # Compute AUC for specified groups and aggregate results
 resultsK6_vstwo_gr <- resultstemp %>%
-  filter(method_all != "Discr") %>%
   group_by(n, method_all, itind) %>%
   summarise(
     auc_1 = auroc(vim[c(51:53, 57:59)], c(rep(FALSE, 3), rep(TRUE, 3))),
@@ -764,7 +763,7 @@ results_long <- resultsK6_vstwo_gr %>%
 results_long <- results_long %>%
   mutate(
     method_all = recode(method_all, class_foc = "Class-foc"),
-    method_all = fct_relevel(method_all, "Class-foc", "Perm", "Gini_corr")
+    method_all = fct_relevel(method_all, "Class-foc", "Perm", "Gini_corr", "Discr")
   )
 
 p1 <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color = method_all)) +
@@ -778,7 +777,7 @@ p1 <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color 
         plot.title = element_text(size = 16)
   ) + 
   ylab("AUC") +
-  scale_shape_manual(values=c("Class-foc" = 1, "Perm" = 2, "Gini_corr" = 3)) +
+  scale_shape_manual(values=c("Class-foc" = 1, "Perm" = 2, "Gini_corr" = 3, "Discr" = 0)) +
   scale_x_discrete(labels = c("cl_rel_1" = expression(X[cl_rel_1]), "cl_rel_2" = expression(X[cl_rel_2]), 
                               "cl_rel_3" = expression(X[cl_rel_3]), "cl_rel_4" = expression(X[cl_rel_4]))) +
   theme(legend.position = "none") +
@@ -789,7 +788,6 @@ p1 <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color 
 
 # Compute AUC for specified groups and aggregate results
 resultsK6_vsthr_gr <- resultstemp %>%
-  filter(method_all != "Discr") %>%
   group_by(n, method_all, itind) %>%
   summarise(
     auc_1 = auroc(vim[c(54:56, 57:59)], c(rep(FALSE, 3), rep(TRUE, 3))),
@@ -817,7 +815,7 @@ results_long <- resultsK6_vsthr_gr %>%
 results_long <- results_long %>%
   mutate(
     method_all = recode(method_all, class_foc = "Class-foc"),
-    method_all = fct_relevel(method_all, "Class-foc", "Perm", "Gini_corr")
+    method_all = fct_relevel(method_all, "Class-foc", "Perm", "Gini_corr", "Discr")
   )
 
 p2 <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color = method_all)) +
@@ -833,7 +831,7 @@ p2 <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color 
         plot.title = element_text(size = 16)
   ) + 
   labs(color="VIM type", shape="VIM type", y="AUC") +
-  scale_shape_manual(values=c("Class-foc" = 1, "Perm" = 2, "Gini_corr" = 3)) +
+  scale_shape_manual(values=c("Class-foc" = 1, "Perm" = 2, "Gini_corr" = 3, "Discr" = 0)) +
   scale_x_discrete(labels = c("cl_rel_1" = expression(X[cl_rel_1]), "cl_rel_2" = 
                                 expression(X[cl_rel_2]), "cl_rel_3" = expression(X[cl_rel_3]), 
                               "cl_rel_4" = expression(X[cl_rel_4]))) +
@@ -885,7 +883,6 @@ resultstemp$K <- NULL
 
 # Compute AUC for specified groups and aggregate results
 resultsK10_vstwo_gr <- resultstemp %>%
-  filter(method_all != "Discr") %>%
   group_by(n, method_all, itind) %>%
   summarise(
     auc_1 = auroc(vim[c(51:53, 57:59)], c(rep(FALSE, 3), rep(TRUE, 3))),
@@ -915,7 +912,7 @@ results_long <- resultsK10_vstwo_gr %>%
 results_long <- results_long %>%
   mutate(
     method_all = recode(method_all, class_foc = "Class-foc"),
-    method_all = fct_relevel(method_all, "Class-foc", "Perm", "Gini_corr")
+    method_all = fct_relevel(method_all, "Class-foc", "Perm", "Gini_corr", "Discr")
   )
 
 p1 <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color = method_all)) +
@@ -929,7 +926,7 @@ p1 <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color 
         plot.title = element_text(size = 16)
   ) +
   ylab("AUC") +
-  scale_shape_manual(values=c("Class-foc" = 1, "Perm" = 2, "Gini_corr" = 3)) +
+  scale_shape_manual(values=c("Class-foc" = 1, "Perm" = 2, "Gini_corr" = 3, "Discr" = 0)) +
   scale_x_discrete(labels = c("cl_rel_1" = expression(X[cl_rel_1]), "cl_rel_2" = 
                                 expression(X[cl_rel_2]), "cl_rel_3" = expression(X[cl_rel_3]), 
                               "cl_rel_4" = expression(X[cl_rel_4]))) +
@@ -942,7 +939,6 @@ p1 <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color 
 
 # Compute AUC for specified groups and aggregate results
 resultsK10_vsthr_gr <- resultstemp %>%
-  filter(method_all != "Discr") %>%
   group_by(n, method_all, itind) %>%
   summarise(
     auc_1 = auroc(vim[c(54:56, 57:59)], c(rep(FALSE, 3), rep(TRUE, 3))),
@@ -972,7 +968,7 @@ results_long <- resultsK10_vsthr_gr %>%
 results_long <- results_long %>%
   mutate(
     method_all = recode(method_all, class_foc = "Class-foc"),
-    method_all = fct_relevel(method_all, "Class-foc", "Perm", "Gini_corr")
+    method_all = fct_relevel(method_all, "Class-foc", "Perm", "Gini_corr", "Discr")
   )
 
 p2 <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color = method_all)) +
@@ -988,7 +984,7 @@ p2 <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color 
         plot.title = element_text(size = 16)
   ) +
   labs(color="VIM type", shape="VIM type", y="AUC") +
-  scale_shape_manual(values=c("Class-foc" = 1, "Perm" = 2, "Gini_corr" = 3)) +
+  scale_shape_manual(values=c("Class-foc" = 1, "Perm" = 2, "Gini_corr" = 3, "Discr" = 0)) +
   scale_x_discrete(labels = c("cl_rel_1" = expression(X[cl_rel_1]), "cl_rel_2" = expression(X[cl_rel_2]), 
                               "cl_rel_3" = expression(X[cl_rel_3]), "cl_rel_4" = expression(X[cl_rel_4]))) +
   theme(legend.position = "right") +
@@ -1161,6 +1157,9 @@ grid_plot <- arrangeGrob(p1, p2, ncol = 2)  # `nullGrob()` is an empty plot
 # Figure 1:
 
 ggsave("../figures/Fig1.eps", grid_plot, width = 12, height = 10)
+
+
+
 
 
 
@@ -1439,7 +1438,6 @@ ggsave("../figures/FigS3.pdf", grid_plot, width = 12, height = 10)
 
 
 
-
 # Figure S4: VIM values obtained for class-focused and discriminatory VIM and the permutation VIM (perm) 
 # obtained for all simulated datasets with n = 2000.
 #################################################################################################
@@ -1568,6 +1566,280 @@ grid_plot <- arrangeGrob(p1, p2, ncol = 2)  # `nullGrob()` is an empty plot
 # Figure S4:
 
 ggsave("../figures/FigS4.pdf", grid_plot, width = 12, height = 10)
+
+
+
+
+
+
+
+
+# Figure S5: VIM values obtained for corrected Gini importance (Gini_corr) obtained for all 
+# simulated datasets with n = 100.
+#################################################################################################
+
+
+resi <- resultsall %>% filter(n=="n = 100", method_all %in% c("Gini_corr"))
+
+resi <- resi %>%
+  group_by(n, K, itind) %>%
+  mutate(seq = row_number()) %>%
+  ungroup()
+
+resi <- resi %>% filter(!(seq %in% 1:45))
+
+resi$K <- factor(paste0("C = ", resi$K), levels=c("C = 4", "C = 6", "C = 10"))
+
+resi2 <- data.frame(
+  K = factor(rep(c("C = 4", "C = 6", "C = 10"), times=c(5, 6, 7)), 
+             levels=c("C = 4", "C = 6", "C = 10")),
+  xpos = c(2.75, 7, 10, 13, 16, 2.75, 7, 10, 13, 16, 19, 2.75, 7, 10, 13, 16, 19, 22),
+  labels = c("X[no]", "X[two_gr]", "X[cl_rel_1]", "X[cl_rel_2]", "X[cl_rel_3]",
+             "X[no]", "X[two_gr]", "X[thr_gr]", "X[cl_rel_1]", "X[cl_rel_2]", "X[cl_rel_3]",
+             "X[no]", "X[two_gr]", "X[thr_gr]", "X[cl_rel_1]", "X[cl_rel_2]", "X[cl_rel_3]", "X[cl_rel_4]")
+)
+
+# Create a data frame with x-intercept values specific for each K group
+vline_data <- data.frame(
+  K = factor(c(rep("C = 4", 4), rep("C = 6", 5), rep("C = 10", 6)),
+             levels = c("C = 4", "C = 6", "C = 10")),
+  xintercept = c(5.5, 8.5, 11.5, 14.5, 5.5, 8.5, 11.5, 14.5, 17.5, 5.5, 8.5, 11.5, 14.5, 17.5, 20.5)
+)
+
+# Calculate the minimum y-value for each K group and determine the y-position for labels
+resi_label_pos <- resi %>%
+  group_by(K) %>%
+  summarize(min_y = min(vim), .groups = "drop") %>%
+  mutate(label_y = min_y)
+
+# Join this information back with resi2 to include label positions
+resi2 <- resi2 %>%
+  left_join(resi_label_pos, by = "K") %>%
+  select(K, xpos, labels, label_y)
+
+# Plot
+p <- ggplot(resi, aes(x = factor(seq), y = vim)) +
+  facet_wrap(~ K, ncol=1, scales="free") +
+  geom_boxplot(position = position_dodge(width = 0.75)) +
+  geom_vline(data = vline_data, aes(xintercept = xintercept)) +
+  theme_bw() +
+  labs(title = "Corrected Gini importance", x = "Covariates", y = "VIM values") +
+  theme(legend.position = "none", axis.ticks.x = element_blank(),
+        axis.text.x = element_blank(),
+        strip.text.x = element_text(size = 16),
+        axis.title = element_text(size = 16),
+        axis.text.y=element_text(size=12),
+        plot.title = element_text(size = 16)) +
+  geom_text(data = resi2, aes(x = xpos, y = label_y, label = labels), parse = TRUE, size=5)
+
+# Figure S5:
+
+ggsave("../figures/FigS5.pdf", width = 6, height = 10)
+
+
+
+
+
+
+
+# Figure S6: VIM values obtained for corrected Gini importance (Gini_corr) obtained for all 
+# simulated datasets with n = 500.
+#################################################################################################
+
+
+resi <- resultsall %>% filter(n=="n = 500", method_all %in% c("Gini_corr"))
+
+resi <- resi %>%
+  group_by(n, K, itind) %>%
+  mutate(seq = row_number()) %>%
+  ungroup()
+
+resi <- resi %>% filter(!(seq %in% 1:45))
+
+resi$K <- factor(paste0("C = ", resi$K), levels=c("C = 4", "C = 6", "C = 10"))
+
+resi2 <- data.frame(
+  K = factor(rep(c("C = 4", "C = 6", "C = 10"), times=c(5, 6, 7)), 
+             levels=c("C = 4", "C = 6", "C = 10")),
+  xpos = c(2.75, 7, 10, 13, 16, 2.75, 7, 10, 13, 16, 19, 2.75, 7, 10, 13, 16, 19, 22),
+  labels = c("X[no]", "X[two_gr]", "X[cl_rel_1]", "X[cl_rel_2]", "X[cl_rel_3]",
+             "X[no]", "X[two_gr]", "X[thr_gr]", "X[cl_rel_1]", "X[cl_rel_2]", "X[cl_rel_3]",
+             "X[no]", "X[two_gr]", "X[thr_gr]", "X[cl_rel_1]", "X[cl_rel_2]", "X[cl_rel_3]", "X[cl_rel_4]")
+)
+
+# Create a data frame with x-intercept values specific for each K group
+vline_data <- data.frame(
+  K = factor(c(rep("C = 4", 4), rep("C = 6", 5), rep("C = 10", 6)),
+             levels = c("C = 4", "C = 6", "C = 10")),
+  xintercept = c(5.5, 8.5, 11.5, 14.5, 5.5, 8.5, 11.5, 14.5, 17.5, 5.5, 8.5, 11.5, 14.5, 17.5, 20.5)
+)
+
+# Calculate the minimum y-value for each K group and determine the y-position for labels
+resi_label_pos <- resi %>%
+  group_by(K) %>%
+  summarize(min_y = min(vim), .groups = "drop") %>%
+  mutate(label_y = min_y + (0.7 * min_y))
+
+# Join this information back with resi2 to include label positions
+resi2 <- resi2 %>%
+  left_join(resi_label_pos, by = "K") %>%
+  select(K, xpos, labels, label_y)
+
+# Plot
+p <- ggplot(resi, aes(x = factor(seq), y = vim)) +
+  facet_wrap(~ K, ncol=1, scales="free") +
+  geom_boxplot(position = position_dodge(width = 0.75)) +
+  geom_vline(data = vline_data, aes(xintercept = xintercept)) +
+  theme_bw() +
+  labs(title = "Corrected Gini importance", x = "Covariates", y = "VIM values") +
+  theme(legend.position = "none", axis.ticks.x = element_blank(),
+        axis.text.x = element_blank(),
+        strip.text.x = element_text(size = 16),
+        axis.title = element_text(size = 16),
+        axis.text.y=element_text(size=12),
+        plot.title = element_text(size = 16)) +
+  geom_text(data = resi2, aes(x = xpos, y = label_y, label = labels), parse = TRUE, size=5)
+
+# Figure S6:
+
+ggsave("../figures/FigS6.pdf", width = 6, height = 10)
+
+
+
+
+
+
+# Figure S7: VIM values obtained for corrected Gini importance (Gini_corr) obtained for all 
+# simulated datasets with n = 1000.
+#################################################################################################
+
+
+resi <- resultsall %>% filter(n=="n = 1000", method_all %in% c("Gini_corr"))
+
+resi <- resi %>%
+  group_by(n, K, itind) %>%
+  mutate(seq = row_number()) %>%
+  ungroup()
+
+resi <- resi %>% filter(!(seq %in% 1:45))
+
+resi$K <- factor(paste0("C = ", resi$K), levels=c("C = 4", "C = 6", "C = 10"))
+
+resi2 <- data.frame(
+  K = factor(rep(c("C = 4", "C = 6", "C = 10"), times=c(5, 6, 7)), 
+             levels=c("C = 4", "C = 6", "C = 10")),
+  xpos = c(2.75, 7, 10, 13, 16, 2.75, 7, 10, 13, 16, 19, 2.75, 7, 10, 13, 16, 19, 22),
+  labels = c("X[no]", "X[two_gr]", "X[cl_rel_1]", "X[cl_rel_2]", "X[cl_rel_3]",
+             "X[no]", "X[two_gr]", "X[thr_gr]", "X[cl_rel_1]", "X[cl_rel_2]", "X[cl_rel_3]",
+             "X[no]", "X[two_gr]", "X[thr_gr]", "X[cl_rel_1]", "X[cl_rel_2]", "X[cl_rel_3]", "X[cl_rel_4]")
+)
+
+# Create a data frame with x-intercept values specific for each K group
+vline_data <- data.frame(
+  K = factor(c(rep("C = 4", 4), rep("C = 6", 5), rep("C = 10", 6)),
+             levels = c("C = 4", "C = 6", "C = 10")),
+  xintercept = c(5.5, 8.5, 11.5, 14.5, 5.5, 8.5, 11.5, 14.5, 17.5, 5.5, 8.5, 11.5, 14.5, 17.5, 20.5)
+)
+
+# Calculate the minimum y-value for each K group and determine the y-position for labels
+resi_label_pos <- resi %>%
+  group_by(K) %>%
+  summarize(min_y = min(vim), .groups = "drop") %>%
+  mutate(label_y = min_y + (0.7 * min_y))
+
+# Join this information back with resi2 to include label positions
+resi2 <- resi2 %>%
+  left_join(resi_label_pos, by = "K") %>%
+  select(K, xpos, labels, label_y)
+
+# Plot
+p <- ggplot(resi, aes(x = factor(seq), y = vim)) +
+  facet_wrap(~ K, ncol=1, scales="free") +
+  geom_boxplot(position = position_dodge(width = 0.75)) +
+  geom_vline(data = vline_data, aes(xintercept = xintercept)) +
+  theme_bw() +
+  labs(title = "Corrected Gini importance", x = "Covariates", y = "VIM values") +
+  theme(legend.position = "none", axis.ticks.x = element_blank(),
+        axis.text.x = element_blank(),
+        strip.text.x = element_text(size = 16),
+        axis.title = element_text(size = 16),
+        axis.text.y=element_text(size=12),
+        plot.title = element_text(size = 16)) +
+  geom_text(data = resi2, aes(x = xpos, y = label_y, label = labels), parse = TRUE, size=5)
+
+# Figure S7:
+
+ggsave("../figures/FigS7.pdf", width = 6, height = 10)
+
+
+
+
+
+
+# Figure S8: VIM values obtained for corrected Gini importance (Gini_corr) obtained for all 
+# simulated datasets with n = 2000.
+#################################################################################################
+
+
+resi <- resultsall %>% filter(n=="n = 2000", method_all %in% c("Gini_corr"))
+
+resi <- resi %>%
+  group_by(n, K, itind) %>%
+  mutate(seq = row_number()) %>%
+  ungroup()
+
+resi <- resi %>% filter(!(seq %in% 1:45))
+
+resi$K <- factor(paste0("C = ", resi$K), levels=c("C = 4", "C = 6", "C = 10"))
+
+resi2 <- data.frame(
+  K = factor(rep(c("C = 4", "C = 6", "C = 10"), times=c(5, 6, 7)), 
+             levels=c("C = 4", "C = 6", "C = 10")),
+  xpos = c(2.75, 7, 10, 13, 16, 2.75, 7, 10, 13, 16, 19, 2.75, 7, 10, 13, 16, 19, 22),
+  labels = c("X[no]", "X[two_gr]", "X[cl_rel_1]", "X[cl_rel_2]", "X[cl_rel_3]",
+             "X[no]", "X[two_gr]", "X[thr_gr]", "X[cl_rel_1]", "X[cl_rel_2]", "X[cl_rel_3]",
+             "X[no]", "X[two_gr]", "X[thr_gr]", "X[cl_rel_1]", "X[cl_rel_2]", "X[cl_rel_3]", "X[cl_rel_4]")
+)
+
+# Create a data frame with x-intercept values specific for each K group
+vline_data <- data.frame(
+  K = factor(c(rep("C = 4", 4), rep("C = 6", 5), rep("C = 10", 6)),
+             levels = c("C = 4", "C = 6", "C = 10")),
+  xintercept = c(5.5, 8.5, 11.5, 14.5, 5.5, 8.5, 11.5, 14.5, 17.5, 5.5, 8.5, 11.5, 14.5, 17.5, 20.5)
+)
+
+# Calculate the minimum y-value for each K group and determine the y-position for labels
+resi_label_pos <- resi %>%
+  group_by(K) %>%
+  summarize(min_y = min(vim), .groups = "drop") %>%
+  mutate(label_y = min_y + (0.7 * min_y))
+
+# Join this information back with resi2 to include label positions
+resi2 <- resi2 %>%
+  left_join(resi_label_pos, by = "K") %>%
+  select(K, xpos, labels, label_y)
+
+# Plot
+p <- ggplot(resi, aes(x = factor(seq), y = vim)) +
+  facet_wrap(~ K, ncol=1, scales="free") +
+  geom_boxplot(position = position_dodge(width = 0.75)) +
+  geom_vline(data = vline_data, aes(xintercept = xintercept)) +
+  theme_bw() +
+  labs(title = "Corrected Gini importance", x = "Covariates", y = "VIM values") +
+  theme(legend.position = "none", axis.ticks.x = element_blank(),
+        axis.text.x = element_blank(),
+        strip.text.x = element_text(size = 16),
+        axis.title = element_text(size = 16),
+        axis.text.y=element_text(size=12),
+        plot.title = element_text(size = 16)) +
+  geom_text(data = resi2, aes(x = xpos, y = label_y, label = labels), parse = TRUE, size=5)
+
+# Figure S8:
+
+ggsave("../figures/FigS8.pdf", width = 6, height = 10)
+
+
+
 
 
 

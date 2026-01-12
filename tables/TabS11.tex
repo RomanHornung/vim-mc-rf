@@ -1,0 +1,17 @@
+\begin{table}[ht]
+\scriptsize
+\centering
+\caption{Runtime analysis (in minutes). Perm: permutation importance; Gini\_corr: corrected Gini importance; Class-foc\_Discr\_def: class-focused and discriminatory VIMs with default hyperparameters; Class-foc\_Discr\_md10, Class-foc\_Discr\_md7, and Class-foc\_Discr\_md5: class-focused and discriminatory VIMs computed using a maximum tree depth of 10, 7, and 5, respectively}
+\label{tab:runtime_analysis}
+\begin{tabular}{p{1.2cm} p{1.3cm} p{1.3cm} p{1.9cm} p{1.9cm} p{1.9cm} p{1.9cm}}
+\hline
+ & Perm & Gini\_corr & Class-foc\_Discr\_def & Class-foc\_Discr\_md10 & Class-foc\_Discr\_md7 & Class-foc\_Discr\_md5 \\
+\hline
+Sim.\ data $C=4$ & 0.05 & 0.07 & 0.42 & -- & -- & -- \\[8pt]
+Sim.\ data $C=6$ & 0.09 & 0.06 & 0.55 & -- & -- & -- \\[8pt]
+Sim.\ data $C=10$ & 0.13 & 0.08 & 0.73 & -- & -- & -- \\[8pt]
+hars & 0.01 & 0.01 & 0.05 & -- & -- & -- \\[8pt]
+ctg & 0.13 & 0.08 & 1.17 & -- & -- & -- \\[8pt]
+gas-drift &   6.12 &   3.21 & 182.55 & 66.66 & 12.70 &  9.18 \\[8pt]
+\end{tabular}
+\end{table}

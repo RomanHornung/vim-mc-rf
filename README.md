@@ -13,12 +13,12 @@ Authors: Roman Hornung<sup>1,2,*</sup> and Alexander Hapfelmeier<sup>3</sup>
 ## Program and Platform
 
 - **Program**: R, versions 4.2.2 and 4.4.0.
-- The raw results of the simulation study were obtained on a Linux cluster, and the evaluation of the raw results to produce the final results as well as the conduction of the real data analyses was performed on Windows 11.
+- The raw results of the simulation study were obtained on a Linux cluster, and the evaluation of the raw results to produce the final results as well as the conduction of the real data analyses and the runtime analysis was performed on Windows 11.
 - Below is the output of the R command `sessionInfo()` on the Linux machine and on the Windows machine. 
   The output specifies which R packages and versions of those packages were used to generate the raw results 
   and to evaluate them.
 
-### sessionInfo() on the Linux cluster
+### sessionInfo() on the Linux Cluster
 
 ```R
 > sessionInfo()
@@ -63,7 +63,7 @@ loaded via a namespace (and not attached):
 [37] broom_1.0.7   
 ```
 
-### sessionInfo() on the Windows machine
+### sessionInfo() on the Windows Machine
 
 ```R
 > sessionInfo()
@@ -126,7 +126,7 @@ Readers who are not interested in the detailed
 
 ### Contents
 - **simulation**: This subfolder contains the R scripts `simulation.R`,
-    `simulation_functions.R`, and `simulation_evaluation.R` as well
+    `simulation_functions.R`, `simulation_evaluation.R`, and `runtime_evaluation.R` as well
     as the subfolder `intermediate_results`.
     
     The R script `simulation.R` can be used to run the simulation study 
@@ -140,16 +140,22 @@ Readers who are not interested in the detailed
     The R script `simulation_evaluation.R` evaluates the raw results of 
     the simulation study to produce all figures and tables associated with 
     the simulation study.
+    
+    The R script `runtime_evaluation.R` performs the runtime analysis for the simulated datasets.
 
     The subfolder `intermediate_results` contains the intermediate results 
-    of the simulation study.
-- **application**: This subfolder contains the R scripts `application.R` and `plot_funs.R` as well as the Rda file `gas-drift.Rda`.
+    of the simulation study and the runtime analysis (`runtime.Rda`).
+- **application**: This subfolder contains the R scripts `application.R`, `plot_funs.R`, and `runtime_evaluation.R` as well as the Rda files `gas-drift.Rda` and `runtime.Rda`.
 
     The R script `application.R` performs the real data analyses and produces all corresponding figures and tables.
 
-    The R script `plot_funs.R` contains modified versions of the visualization functions from the diversityForest R package.     These modifications ensure that the resulting figures are suitable for printing in black and white.
+    The R script `plot_funs.R` contains modified versions of the visualization functions from the diversityForest R package. These modifications ensure that the resulting figures are suitable for printing in black and white.
 
+    The R script `runtime_evaluation.R` performs the runtime analysis for the real datasets.
+    
     The Rda file `gas-drift.Rda` is the gas-drift dataset downloaded from OpenML (ID: 1476).
+    
+    The Rda file `runtime.Rda` contains the runtimes obtained for the real datasets.
 - **figures**: This subfolder contains all figures shown in the main paper and in the supplementary material as eps and pdf files, respectively.
 - **tables**: This subfolder contains the tables shown in the supplementary material as tex files. Note that when the tables were included in the supplementary material, the tex code of these files was slightly modified for visual reasons (without changing the values in the tables).
     Note further that Table 1 is not included here because this table is related to the design of the simulation study and thus does not show empirical or simulation results.
@@ -158,9 +164,11 @@ Readers who are not interested in the detailed
 
 ## Evaluation of the Results
 
-The R script `simulation_evaluation.R` contained in the subfolder `simulation` produces all results of the simulation study without the need of re-performing it. This R script reads in a Rda file (stored in the subfolder `simulation/intermediate_results`) that contains the raw results.
+The R script `simulation/simulation_evaluation.R` contained in the subfolder `simulation` produces all results of the simulation study without the need of re-performing it. This R script reads in a Rda file (stored in the subfolder `simulation/intermediate_results`) that contains the raw results.
 
-The R script `application.R` performs the real data analyses and produces all results of these analyses.
+The R script `application/application.R` performs the real data analyses and produces all results of these analyses.
+
+The R scripts `simulation/runtime_evaluation.R` and `application/runtime_evaluation.R` perform the runtime analysis for the simulated and real datasets, respectively, where `application/runtime_evaluation.R` produces the Table S11 that shows the results of the runtime analysis. Note that, of course, the obtained runtimes are system-specific, which is why they will be different when re-performing the analysis on a different system. Nevertheless, the runtimes presented in Table S11 are saved in the files `simulation/intermediate_results/runtime.Rda` and `application/runtime.Rda`.
 
 ---
 

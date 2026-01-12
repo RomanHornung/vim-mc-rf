@@ -357,7 +357,7 @@ rm(muobj); gc()
 
 
 
-# Fig. S5: VIM values for all covariates in the ctg dataset.
+# Fig. S9: VIM values for all covariates in the ctg dataset.
 #############################################################
 
 # Assuming perm, gini_corr, discr, and class_foc are numeric vectors
@@ -388,9 +388,9 @@ p <- ggplot(df_combined, aes(x = x, y = y)) +
   theme_bw() + theme(axis.text.x = element_text(color="black"))
 p
 
-# Figure S5:
+# Figure S9:
 
-ggsave("../figures/FigS5.pdf", width=10*0.8, height=7*0.8)
+ggsave("../figures/FigS9.pdf", width=10*0.8, height=7*0.8)
 
 
 
@@ -447,7 +447,7 @@ writeLines(latex_full, "../tables/TabS9.tex")
 
 
 
-# Fig. S6: Heart rate pattern-specific distributions of the five covariates ranked highest by the
+# Fig. S10: Heart rate pattern-specific distributions of the five covariates ranked highest by the
 # class-focused VIM in the ctg dataset.
 ##################################################################################################
 
@@ -512,17 +512,17 @@ combined_plot <- grid.arrange(ps[[1]], ps[[2]], ps[[3]], ps[[4]], ps[[5]], ncol=
 # Display the combined plot
 combined_plot
 
-# Figure S6:
+# Figure S10:
 
-ggsave("../figures/FigS6.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
-
-
+ggsave("../figures/FigS10.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
 
 
 
 
 
-# Fig. S7: Heart rate pattern-specific distributions of the five covariates ranked highest by the
+
+
+# Fig. S11: Heart rate pattern-specific distributions of the five covariates ranked highest by the
 # permutation VIM in the ctg dataset.
 ##################################################################################################
 
@@ -587,9 +587,9 @@ combined_plot <- grid.arrange(ps[[1]], ps[[2]], ps[[3]], ps[[4]], ps[[5]], ncol=
 # Display the combined plot
 combined_plot
 
-# Figure S7:
+# Figure S11:
 
-ggsave("../figures/FigS7.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
+ggsave("../figures/FigS11.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
 
 
 
@@ -706,7 +706,7 @@ rm(muobj); gc()
 
 
 
-# Fig. S8: VIM values for all covariates in the gas-drift dataset.
+# Fig. S12: VIM values for all covariates in the gas-drift dataset.
 ###################################################################
 
 
@@ -738,16 +738,16 @@ p <- ggplot(df_combined, aes(x = x, y = y)) +
   theme_bw() + theme(axis.text.x = element_text(color="black"))
 p
 
-# Figure S8:
+# Figure S12:
 
-ggsave("../figures/FigS8.pdf", width=10*0.8, height=7*0.8)
-
-
+ggsave("../figures/FigS12.pdf", width=10*0.8, height=7*0.8)
 
 
 
 
-# Fig. S9: Gas-specific distributions of the five covariates ranked highest by the class-focused VIM
+
+
+# Fig. S13: Gas-specific distributions of the five covariates ranked highest by the class-focused VIM
 # in the gas-drift dataset.
 #####################################################################################################
 
@@ -813,16 +813,16 @@ combined_plot <- grid.arrange(ps[[1]], ps[[2]], ps[[3]], ps[[4]], ps[[5]], ncol=
 # Display the combined plot
 combined_plot
 
-# Figure S9:
+# Figure S13:
 
-ggsave("../figures/FigS9.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
-
-
+ggsave("../figures/FigS13.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
 
 
 
 
-# Fig. S10: Gas-specific distributions of the five covariates ranked highest by the permutation VIM
+
+
+# Fig. S14: Gas-specific distributions of the five covariates ranked highest by the permutation VIM
 # in the gas-drift dataset.
 ####################################################################################################
 
@@ -888,9 +888,9 @@ combined_plot <- grid.arrange(ps[[1]], ps[[2]], ps[[3]], ps[[4]], ps[[5]], ncol=
 # Display the combined plot
 combined_plot
 
-# Figure S10:
+# Figure S14:
 
-ggsave("../figures/FigS10.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
+ggsave("../figures/FigS14.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
 
 
 
@@ -952,7 +952,7 @@ plotVartemp <- function(x, y, ...) {
 
 
 
-# Fig. S11: Gas-specific distributions of the five logarithmized covariates ranked highest by the
+# Fig. S15: Gas-specific distributions of the five logarithmized covariates ranked highest by the
 # class-focused VIM in the gas-drift dataset.
 #################################################################################################
 
@@ -1017,18 +1017,18 @@ combined_plot <- grid.arrange(ps[[1]], ps[[2]], ps[[3]], ps[[4]], ps[[5]], ncol=
 # Display the combined plot
 combined_plot
 
-# Figure S11:
+# Figure S15:
 
-ggsave("../figures/FigS11.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
-
-
+ggsave("../figures/FigS15.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
 
 
 
 
 
 
-# Fig. S12: Gas-specific distributions of the five logarithmized covariates ranked highest by the
+
+
+# Fig. S16: Gas-specific distributions of the five logarithmized covariates ranked highest by the
 # permutation VIM in the gas-drift dataset.
 ##################################################################################################
 
@@ -1092,9 +1092,9 @@ combined_plot <- grid.arrange(ps[[1]], ps[[2]], ps[[3]], ps[[4]], ps[[5]], ncol=
 # Display the combined plot
 combined_plot
 
-# Figure S12:
+# Figure S16:
 
-ggsave("../figures/FigS12.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
+ggsave("../figures/FigS16.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
 
 
 
