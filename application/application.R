@@ -53,7 +53,7 @@ rm(muobj); gc()
 
 
 
-# Figure 6: VIM values for all covariates in the hars dataset.
+# Figure 3: VIM values for all covariates in the hars dataset.
 ###############################################################
 
 library("ggplot2")
@@ -86,9 +86,9 @@ p <- ggplot(df_combined, aes(x = x, y = y)) +
   theme_bw() + theme(axis.text.x = element_text(color="black"))
 p
 
-# Figure 6:
+# Figure 3:
 
-ggsave("../figures/Fig6.eps", width=10*0.8, height=7*0.8)
+ggsave("../figures/Fig3.eps", width=10*0.8, height=7*0.8)
 
 
 
@@ -161,7 +161,7 @@ source("plot_funs.R")
 
 
 
-# Figure 7: Activity-specific distributions of the five covariates ranked highest by the
+# Figure 4: Activity-specific distributions of the five covariates ranked highest by the
 # class-focused VIM in the hars dataset.
 #########################################################################################
 
@@ -188,7 +188,7 @@ ps <- list()
 # Create a title with increased font size
 title_grob <- textGrob(
   paste0("Ranked #", i, " by class-focused VIM:  ", tempnames[i]), 
-  gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+  gp = gpar(fontsize = 18)  # Increase size
 )
 
 # Arrange plots with a larger title
@@ -210,7 +210,7 @@ for(i in 2:5) {
   # Create a title with increased font size
   title_grob <- textGrob(
     paste0("Ranked #", i, " by class-focused VIM:  ", tempnames[i]), 
-    gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+    gp = gpar(fontsize = 18)  # Increase size
   )
   
   # Arrange plots with a larger title
@@ -230,16 +230,16 @@ combined_plot <- grid.arrange(ps[[1]], ps[[2]], ps[[3]], ps[[4]], ps[[5]], ncol=
 # Display the combined plot
 combined_plot
 
-# Figure 7
+# Figure 4
 
-ggsave("../figures/Fig7.eps", plot = combined_plot, width = 10*1.3, height = 14*1.3)
-
-
+ggsave("../figures/Fig4.eps", plot = combined_plot, width = 10*1.3, height = 14*1.3)
 
 
 
 
-# Figure 8: Activity-specific distributions of the five covariates ranked highest by the
+
+
+# Figure S20: Activity-specific distributions of the five covariates ranked highest by the
 # permutation VIM in the hars dataset.
 #########################################################################################
 
@@ -261,7 +261,7 @@ ps <- list()
 # Create a title with increased font size
 title_grob <- textGrob(
   paste0("Ranked #", i, " by permutation VIM:  ", tempnames[i]), 
-  gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+  gp = gpar(fontsize = 18)  # Increase size
 )
 
 # Arrange plots with a larger title
@@ -283,7 +283,7 @@ for(i in 2:5) {
   # Create a title with increased font size
   title_grob <- textGrob(
     paste0("Ranked #", i, " by permutation VIM:  ", tempnames[i]), 
-    gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+    gp = gpar(fontsize = 18)  # Increase size
   )
   
   # Arrange plots with a larger title
@@ -304,9 +304,9 @@ combined_plot <- grid.arrange(ps[[1]], ps[[2]], ps[[3]], ps[[4]], ps[[5]], ncol=
 # Display the combined plot
 combined_plot
 
-# Figure 8
+# Figure S20
 
-ggsave("../figures/Fig8.eps", plot = combined_plot, width = 10*1.3, height = 14*1.3)
+ggsave("../figures/FigS20.pdf", plot = combined_plot, width = 11*1.3, height = 14*1.3)
 
 
 
@@ -357,7 +357,7 @@ rm(muobj); gc()
 
 
 
-# Fig. S9: VIM values for all covariates in the ctg dataset.
+# Fig. S12: VIM values for all covariates in the ctg dataset.
 #############################################################
 
 # Assuming perm, gini_corr, discr, and class_foc are numeric vectors
@@ -388,9 +388,9 @@ p <- ggplot(df_combined, aes(x = x, y = y)) +
   theme_bw() + theme(axis.text.x = element_text(color="black"))
 p
 
-# Figure S9:
+# Figure S12:
 
-ggsave("../figures/FigS9.pdf", width=10*0.8, height=7*0.8)
+ggsave("../figures/FigS12.pdf", width=10*0.8, height=7*0.8)
 
 
 
@@ -447,7 +447,7 @@ writeLines(latex_full, "../tables/TabS9.tex")
 
 
 
-# Fig. S10: Heart rate pattern-specific distributions of the five covariates ranked highest by the
+# Fig. S13: Heart rate pattern-specific distributions of the five covariates ranked highest by the
 # class-focused VIM in the ctg dataset.
 ##################################################################################################
 
@@ -469,7 +469,7 @@ ps <- list()
 # Create a title with increased font size
 title_grob <- textGrob(
   paste0("Ranked #", i, " by class-focused VIM:  ", tempnames[i]), 
-  gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+  gp = gpar(fontsize = 18)  # Increase size
 )
 
 # Arrange plots with a larger title
@@ -491,7 +491,7 @@ for(i in 2:5) {
   # Create a title with increased font size
   title_grob <- textGrob(
     paste0("Ranked #", i, " by class-focused VIM:  ", tempnames[i]), 
-    gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+    gp = gpar(fontsize = 18)  # Increase size
   )
   
   # Arrange plots with a larger title
@@ -512,17 +512,17 @@ combined_plot <- grid.arrange(ps[[1]], ps[[2]], ps[[3]], ps[[4]], ps[[5]], ncol=
 # Display the combined plot
 combined_plot
 
-# Figure S10:
+# Figure S13:
 
-ggsave("../figures/FigS10.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
-
-
+ggsave("../figures/FigS13.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
 
 
 
 
 
-# Fig. S11: Heart rate pattern-specific distributions of the five covariates ranked highest by the
+
+
+# Fig. S14: Heart rate pattern-specific distributions of the five covariates ranked highest by the
 # permutation VIM in the ctg dataset.
 ##################################################################################################
 
@@ -544,7 +544,7 @@ ps <- list()
 # Create a title with increased font size
 title_grob <- textGrob(
   paste0("Ranked #", i, " by permutation VIM:  ", tempnames[i]), 
-  gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+  gp = gpar(fontsize = 18)  # Increase size
 )
 
 # Arrange plots with a larger title
@@ -566,7 +566,7 @@ for(i in 2:5) {
   # Create a title with increased font size
   title_grob <- textGrob(
     paste0("Ranked #", i, " by permutation VIM:  ", tempnames[i]), 
-    gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+    gp = gpar(fontsize = 18)  # Increase size
   )
   
   # Arrange plots with a larger title
@@ -587,9 +587,9 @@ combined_plot <- grid.arrange(ps[[1]], ps[[2]], ps[[3]], ps[[4]], ps[[5]], ncol=
 # Display the combined plot
 combined_plot
 
-# Figure S11:
+# Figure S14:
 
-ggsave("../figures/FigS11.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
+ggsave("../figures/FigS14.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
 
 
 
@@ -706,7 +706,7 @@ rm(muobj); gc()
 
 
 
-# Fig. S12: VIM values for all covariates in the gas-drift dataset.
+# Fig. S15: VIM values for all covariates in the gas-drift dataset.
 ###################################################################
 
 
@@ -738,16 +738,16 @@ p <- ggplot(df_combined, aes(x = x, y = y)) +
   theme_bw() + theme(axis.text.x = element_text(color="black"))
 p
 
-# Figure S12:
+# Figure S15:
 
-ggsave("../figures/FigS12.pdf", width=10*0.8, height=7*0.8)
-
-
+ggsave("../figures/FigS15.pdf", width=10*0.8, height=7*0.8)
 
 
 
 
-# Fig. S13: Gas-specific distributions of the five covariates ranked highest by the class-focused VIM
+
+
+# Fig. S16: Gas-specific distributions of the five covariates ranked highest by the class-focused VIM
 # in the gas-drift dataset.
 #####################################################################################################
 
@@ -770,7 +770,7 @@ ps <- list()
 # Create a title with increased font size
 title_grob <- textGrob(
   paste0("Ranked #", i, " by class-focused VIM:  ", tempnames[i]), 
-  gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+  gp = gpar(fontsize = 18)  # Increase size
 )
 
 # Arrange plots with a larger title
@@ -792,7 +792,7 @@ for(i in 2:5) {
   # Create a title with increased font size
   title_grob <- textGrob(
     paste0("Ranked #", i, " by class-focused VIM:  ", tempnames[i]), 
-    gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+    gp = gpar(fontsize = 18)  # Increase size
   )
   
   # Arrange plots with a larger title
@@ -813,16 +813,16 @@ combined_plot <- grid.arrange(ps[[1]], ps[[2]], ps[[3]], ps[[4]], ps[[5]], ncol=
 # Display the combined plot
 combined_plot
 
-# Figure S13:
+# Figure S16:
 
-ggsave("../figures/FigS13.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
-
-
+ggsave("../figures/FigS16.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
 
 
 
 
-# Fig. S14: Gas-specific distributions of the five covariates ranked highest by the permutation VIM
+
+
+# Fig. S17: Gas-specific distributions of the five covariates ranked highest by the permutation VIM
 # in the gas-drift dataset.
 ####################################################################################################
 
@@ -845,7 +845,7 @@ ps <- list()
 # Create a title with increased font size
 title_grob <- textGrob(
   paste0("Ranked #", i, " by permutation VIM:  ", tempnames[i]), 
-  gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+  gp = gpar(fontsize = 18)  # Increase size
 )
 
 # Arrange plots with a larger title
@@ -867,7 +867,7 @@ for(i in 2:5) {
   # Create a title with increased font size
   title_grob <- textGrob(
     paste0("Ranked #", i, " by permutation VIM:  ", tempnames[i]), 
-    gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+    gp = gpar(fontsize = 18)  # Increase size
   )
   
   # Arrange plots with a larger title
@@ -888,9 +888,9 @@ combined_plot <- grid.arrange(ps[[1]], ps[[2]], ps[[3]], ps[[4]], ps[[5]], ncol=
 # Display the combined plot
 combined_plot
 
-# Figure S14:
+# Figure S17:
 
-ggsave("../figures/FigS14.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
+ggsave("../figures/FigS17.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
 
 
 
@@ -952,7 +952,7 @@ plotVartemp <- function(x, y, ...) {
 
 
 
-# Fig. S15: Gas-specific distributions of the five logarithmized covariates ranked highest by the
+# Fig. S18: Gas-specific distributions of the five logarithmized covariates ranked highest by the
 # class-focused VIM in the gas-drift dataset.
 #################################################################################################
 
@@ -974,7 +974,7 @@ ps <- list()
 # Create a title with increased font size
 title_grob <- textGrob(
   paste0("Ranked #", i, " by class-focused VIM:  ", tempnames[i]), 
-  gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+  gp = gpar(fontsize = 18)  # Increase size
 )
 
 # Arrange plots with a larger title
@@ -996,7 +996,7 @@ for(i in 2:5) {
   # Create a title with increased font size
   title_grob <- textGrob(
     paste0("Ranked #", i, " by class-focused VIM:  ", tempnames[i]), 
-    gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+    gp = gpar(fontsize = 18)  # Increase size
   )
   
   # Arrange plots with a larger title
@@ -1017,18 +1017,18 @@ combined_plot <- grid.arrange(ps[[1]], ps[[2]], ps[[3]], ps[[4]], ps[[5]], ncol=
 # Display the combined plot
 combined_plot
 
-# Figure S15:
+# Figure S18:
 
-ggsave("../figures/FigS15.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
-
-
+ggsave("../figures/FigS18.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
 
 
 
 
 
 
-# Fig. S16: Gas-specific distributions of the five logarithmized covariates ranked highest by the
+
+
+# Fig. S19: Gas-specific distributions of the five logarithmized covariates ranked highest by the
 # permutation VIM in the gas-drift dataset.
 ##################################################################################################
 
@@ -1050,7 +1050,7 @@ ps <- list()
 # Create a title with increased font size
 title_grob <- textGrob(
   paste0("Ranked #", i, " by permutation VIM:  ", tempnames[i]), 
-  gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+  gp = gpar(fontsize = 18)  # Increase size
 )
 
 # Arrange plots with a larger title
@@ -1072,7 +1072,7 @@ for(i in 2:5) {
   # Create a title with increased font size
   title_grob <- textGrob(
     paste0("Ranked #", i, " by permutation VIM:  ", tempnames[i]), 
-    gp = gpar(fontsize = 18)  # Increase size & make it bold ### , fontface = "bold"
+    gp = gpar(fontsize = 18)  # Increase size
   )
   
   # Arrange plots with a larger title
@@ -1092,9 +1092,9 @@ combined_plot <- grid.arrange(ps[[1]], ps[[2]], ps[[3]], ps[[4]], ps[[5]], ncol=
 # Display the combined plot
 combined_plot
 
-# Figure S16:
+# Figure S19:
 
-ggsave("../figures/FigS16.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
+ggsave("../figures/FigS19.pdf", plot = combined_plot, width = 10*1.3, height = 14*1.3)
 
 
 

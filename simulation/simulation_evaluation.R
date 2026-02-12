@@ -649,7 +649,7 @@ resultsall$n <- factor(paste0("n = ", resultsall$n), levels=c("n = 100", "n = 50
 
 
 
-# Figure 2: Mean AUC values per considered sample size and method for C = 4.
+# Figure S9: Mean AUC values per considered sample size and method for C = 4.
 #############################################################################
 
 library("tidyr")
@@ -716,19 +716,19 @@ p <- ggplot(results_long, aes(x = cl_rel, y = value, group = method_all, color =
 
 p
 
-# Figure 2:
+# Figure S9:
 
-ggsave("../figures/Fig2.eps", width=10, height=6)
-
-
+ggsave("../figures/FigS9.pdf", width=10, height=6)
 
 
 
 
 
 
-# Figure 3: Mean AUC values per considered sample size and method for C = 6.
-#############################################################################
+
+
+# Figure S10: Mean AUC values per considered sample size and method for C = 6.
+##############################################################################
 
 # Calculate for K=6 and save
 resultstemp <- resultsall[resultsall$K==6,]
@@ -863,18 +863,18 @@ library("grid")
 # Create the plots with an additional empty column for spacing
 grid_plot <- arrangeGrob(p1, nullGrob(), p2, ncol = 3, widths = c(2, 0.1, 2.5)) # c(2, 0.1, 2.83))  # `nullGrob()` is an empty plot
 
-# Figure 3:
+# Figure S10:
 
-ggsave("../figures/Fig3.eps", grid_plot, width=14, height=5.5)
-
-
+ggsave("../figures/FigS10.pdf", grid_plot, width=14, height=5.5)
 
 
 
 
 
 
-# Figure 4: Mean AUC values per considered sample size and method for C = 10.
+
+
+# Figure S11: Mean AUC values per considered sample size and method for C = 10.
 #############################################################################
 
 resultstemp <- resultsall[resultsall$K==10,]
@@ -1012,9 +1012,9 @@ p2 <- p2 + coord_cartesian(ylim = c(y_min, y_max))
 # Create the plots with an additional empty column for spacing
 grid_plot <- arrangeGrob(p1, nullGrob(), p2, ncol = 3, widths = c(2, 0.1, 2.4)) # c(2, 0.1, 2.83))  # `nullGrob()` is an empty plot
 
-# Figure 4:
+# Figure S11:
 
-ggsave("../figures/Fig4.eps", grid_plot, width=16.5, height=5.5)
+ggsave("../figures/FigS11.pdf", grid_plot, width=16.5, height=5.5)
 
 
 
@@ -2318,7 +2318,7 @@ ggsave("../figures/FigS1.pdf", width=10*0.8, height=13*0.8)
 
 
 
-# Figure 5: Class-specific distributions of the covariates X_cl_rel_2 and X_thr_gr for C = 6.
+# Figure 2: Class-specific distributions of the covariates X_cl_rel_2 and X_thr_gr for C = 6.
 #############################################################################################
 
 xseq <- seq(-4, 7, length.out = 200)
@@ -2379,6 +2379,6 @@ p <- ggplot(plotdata, aes(x = x, y = y, group = c, linetype = cl_group)) +
   labs(linetype = "Class")
 p
 
-# Figure 5:
+# Figure 2:
 
-ggsave("../figures/Fig5.eps", width=10*0.8, height=4*0.8)
+ggsave("../figures/Fig2.eps", width=10*0.8, height=4*0.8)
